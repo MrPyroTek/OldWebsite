@@ -1,0 +1,31 @@
+﻿{
+	"version": 1554511939,
+	"fileList": [
+		"data.js",
+		"c2runtime.js",
+		"jquery-2.1.1.min.js",
+		"offlineClient.js",
+		"images/duck-sheet0.png",
+		"images/map-sheet0.png",
+		"images/derapcheck-sheet0.png",
+		"images/goto-sheet0.png",
+		"images/goto2-sheet0.png",
+		"images/legg-sheet0.png",
+		"images/legg-sheet1.png",
+		"images/hitbot-sheet0.png",
+		"images/savebot-sheet0.png",
+		"images/turret-sheet0.png",
+		"images/gow-sheet0.png",
+		"images/slowbox-sheet0.png",
+		"images/slowbox-sheet1.png",
+		"images/savebot2-sheet0.png",
+		"media/duck duck duck.ogg",
+		"media/duck duck duck.m4a",
+		"icon-16.png",
+		"icon-32.png",
+		"icon-114.png",
+		"icon-128.png",
+		"icon-256.png",
+		"loading-logo.png"
+	]
+}

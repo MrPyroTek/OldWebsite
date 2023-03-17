@@ -1,0 +1,30 @@
+ <html>
+        <body>
+            <input type="file" id="fileButton" accept=".capx"/>
+            <script>
+             // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAh5M5dNx5Vy8wuacz7fwcR9guhXtF8hjQ",
+    authDomain: "construct-together.firebaseapp.com",
+    databaseURL: "https://construct-together.firebaseio.com",
+    projectId: "construct-together",
+    storageBucket: "construct-together.appspot.com",
+    messagingSenderId: "1072089954354"
+  };
+  firebase.initializeApp(config);
+           </script>
+           <script>
+              var fileButton = document.getElementById("fileButton");
+              fileButton.addEventListener('change', function(e){
+                 var dateV = new Date();
+    			  var date = dateV.getTime();
+                  var file = e.target.files[0];
+                  var storageRef = firebase.storage().ref("JAM/").child(file.name+'-'+date);
+                  storageRef.put(file);
+                  alert("Hey Thanks!");
+              });  
+           </script>
+
+          
+      </body>
+</html>

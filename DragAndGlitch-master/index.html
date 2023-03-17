@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>DragAndGlitch</title>
+        <link rel='stylesheet' type='text/css' href='css/style.css' />
+        <script charset='utf-8' src='scripts/lib/pixi.js'></script>
+        <script charset='utf-8' src='scripts/lib/dat.gui.js'></script>
+        <script charset='utf-8' src='scripts/lib/addWheelListener.js'></script>
+        <script charset='utf-8' src='scripts/logic/utils.js'></script>
+        <script charset='utf-8' src='scripts/logic/time.js'></script>
+        <script charset='utf-8' src='scripts/logic/input.js'></script>
+        <script charset='utf-8' src='scripts/logic/brush.js'></script>
+        <script charset='utf-8' src='scripts/display/filter.js'></script>
+        <script charset='utf-8' src='scripts/display/buffer.js'></script>
+        <script charset='utf-8' src='scripts/display/cursor.js'></script>
+        <script charset='utf-8' src='scripts/display/gui.js'></script>
+        <script charset='utf-8' src='scripts/engine.js'></script>
+        <script charset='utf-8' src='scripts/logic/loader.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <canvas id='view'></canvas>
+<script>  
+ var Noice = 0
+ var mrefreshinterval = 500;
+ var lastmousex=-1; 
+ var lastmousey=-1;
+ var lastmousetime;
+ var mousetravel = 0;
+ $('html').mousemove(function(e) {
+     var mousex = e.pageX;
+     var mousey = e.pageY;
+     if (lastmousex > -1)
+         mousetravel = Math.max( Math.abs(mousex-lastmousex), Math.abs(mousey-lastmousey) );
+     lastmousex = mousex;
+     lastmousey = mousey;
+     Noice = mousetravel/50
+ });
+
+
+
+
+myAudio = new Audio('someSound.ogg');   
+myAudio.play(); 
+myAudio.volume = 0;
+document.getElementById('view').onmouseup = function() {mouseUp()};
+
+var count = 0;
+var timer;
+document.addEventListener("mousedown", function(){
+     if (timer2) clearInterval(timer2)
+     timer=setInterval(function(){
+          document.getElementById("view").innerHTML = count++;
+          myAudio.volume = lerp (myAudio.volume, Noice, 0.1);
+
+     }, 20); 
+});
+document.addEventListener("mouseup", function(){
+    if (timer) clearInterval(timer)
+    timer2=setInterval(function(){
+    myAudio.volume = lerp (myAudio.volume, 0, 0.1);
+    }, 20);
+    });
+
+
+
+
+myAudio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+
+
+
+</script>
+</div>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+
+<head>
+<script>
+
+//https://jsfiddle.net/g1rsasa3
+
+var vids = $("video"); 
+$.each(vids, function(){
+       this.controls = false; 
+       this.currentTime = 2;
+}, false);
+
+
+}); 
+</script>
+</head>
+
+
+<body>
+
+<video width="800" autoplay controls="false">
+  <source src="splash.mp4" type="video/mp4">
+</video>
+
+</body>
+
+
+
+</html>
